@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="image/x-icon" href="images/colorfull_logo.png">
+        <title>אור שפיץ - הרשמה</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script/header.js"></script>
+        <script src="script/login.js"></script>
+        <!-- font-awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+<body>
+
+    <header>
+        <img src="images/colorfull_logo.png" alt="">
+        <menu>
+            <li><a href="#" id="current-page">התחברות / הרשמה</a></li>
+            <li><a href="shop.html">חנות</a></li>
+            <li><a href="About.html">מי אני?</a></li>
+            <li><a href="Kosher-certificate.html">תעודת כשרות</a></li>
+        </menu>
+        <!-- <div id="user">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p id="username"></p>
+            <button id="logout"  onclick="user()">יציאה</button>
+        </div> -->
+    </header>
+
+    <section class="login-section">
+        <div class="login_content">
+            <div class="login_form">
+                <b>לפני שמתחילים בקנייה... אשמח להכיר אותך</b>
+                <input type="text" name="" id="firstName" placeholder="שם פרטי*">
+                <input type="text" name="" id="lastName" placeholder="שם משפחה*">
+                <input type="email" name="" id="email" placeholder="אימייל*">
+                <input type="text" name="" id="phone"  placeholder="טלפון*">
+                <input type="submit" value="הרשמה" onclick="register()">
+                <b id="welcome_msg">נרשמת בהצלחה ברוך הבא <br><a href="shop.html">לך לחנות</a></b>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer_content">
+            <div class="img" style="background-image: url(images/white_logo.png);"></div>
+            <div class="or">
+                <b>אור שפיץ</b>
+                <li><a href="shop.html">חנות</a></li>
+                <li><a href="About.html">מי אני?</a></li>
+            </div>
+            <div class="activity_time">
+                <b>שעות פעילות</b>
+                <br>
+                בייקרי בוגרשוב 3 תל אביב 
+                <br>
+                בימים א'-ה' 09:30-21:30
+                <br>
+                יום שישי 08:30-14:00
+                <br>
+                פודטראק - ילדי טהרן 3 ראשון לציון
+                <br>
+                בימים א'-ה' 11:00-21:30
+                <br>
+                יום שישי 08:30-14:00
+                <br>
+                מוצאי שבת 19:30-22:00
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
