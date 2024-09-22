@@ -29,4 +29,51 @@ function register() {
         localStorage.setItem("fullName", fullName);
         document.getElementById('welcome_msg').style.display = "block";
     }
+
+    if (valid) {
+        fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ firstName, lastName, email, password, phone })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'User registered successfully') {
+                alert('Registration successful!');
+                localStorage.setItem("connect", true);
+                localStorage.setItem("fullName", firstName + ' ' + lastName);
+                document.getElementById('welcome_msg').style.display = "block";
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+function login() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Login successful') {
+            alert('Login successful');
+            localStorage.setItem("connect", true);
+            localStorage.setItem("fullName", data.fullName);
+            window.location.href = "front-page.html"; // Redirect after login
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
