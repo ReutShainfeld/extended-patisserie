@@ -52,7 +52,7 @@ function register() {
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
 
-        fetch('http://localhost:3000/login', {
+        fetch('http://localhost:3000/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,13 +65,15 @@ function register() {
                 alert('Login successful');
                 localStorage.setItem("connect", true);
                 localStorage.setItem("fullName", data.fullName);
-                window.location.href = "front-page.html"; // Redirect after login
+                window.location.href = "shop.html"; // Redirect after login
             } else {
                 alert(data.message);
             }
         })
         .catch(error => console.error('Error:', error));
     }
+
+    
 
 
  
