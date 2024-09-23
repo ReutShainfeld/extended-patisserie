@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" type="image/x-icon" href="images/colorfull_logo.png">
+        <link rel="icon" type="image/x-icon" href="../images/colorfull_logo.png">
         <title>אור שפיץ - חנות</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script/header.js"></script>
-        <script src="script/shop.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../script/header.js"></script>
+        <script src="../script/shop.js"></script>
         <!-- font-awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- bootstrap -->
@@ -17,7 +17,7 @@
 <body onload="checkRegister()">
 
     <header>
-        <img src="images/colorfull_logo.png" alt="">
+        <img src="../images/colorfull_logo.png" alt="">
         <menu>
             <li><a href="front-page.html">התחברות / הרשמה</a></li>
             <li><a href="#" id="current-page">חנות</a></li>
@@ -52,17 +52,17 @@
             <h2>מה אתם מחפשים?</h2>
             <p id="shop_connect_msg">*בכדי לרכוש מוצרים דרך האתר עליך להיות מחובר <a href="front-page.html">להתחברות לחץ כאן</a></p>
             <div class="buttons">
-                <button onclick="filter('עוגת יום הולדת')">עוגות יום הולדת <img src="images/birthday-cake-icon.png" alt=""></button>
-                <button onclick="filter('בלונים')">בלונים<img src="images/baloons.png" alt=""></button>
-                <button onclick="filter('עוגות חתונה')">עוגת חתונה <img src="images/wedding-cake.png" alt=""></button>
-                <button onclick="filter('מארזים')">מארזים <img src="images/case.png" alt=""></button>
-                <button onclick="filter('קינוחים')">קינוחים <img src="images/ice-cream-cup.png" alt=""></button>
-                <button onclick="filter('הכל')">הכל <img src="images/bakery.png" alt=""></button>
+                <button onclick="filter('עוגת יום הולדת')">עוגות יום הולדת <img src="../images/birthday-cake-icon.png" alt=""></button>
+                <button onclick="filter('בלונים')">בלונים<img src="../images/baloons.png" alt=""></button>
+                <button onclick="filter('עוגות חתונה')">עוגת חתונה <img src="../images/wedding-cake.png" alt=""></button>
+                <button onclick="filter('מארזים')">מארזים <img src="../images/case.png" alt=""></button>
+                <button onclick="filter('קינוחים')">קינוחים <img src="../images/ice-cream-cup.png" alt=""></button>
+                <button onclick="filter('הכל')">הכל <img src="../images/bakery.png" alt=""></button>
             </div>
         </div>    
         <div class="products-content">
             <div class="single_product" data-category="עוגת יום הולדת">
-                <div class="img" style="background-image: url('images/birthday/birthday_1.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/birthday/birthday_1.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:1, name:"עוגת יום הולדת דודבנים", price:200, qty:1, category:"עוגת יום הולדת"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="1">0</p>
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="בלונים">
-                <div class="img" style="background-image: url('images/baloons/baloon_1.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/baloons/baloon_1.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:2, name:"בלון נסיך נולד", price:20, qty:1, category:"בלונים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="2">0</p>
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="מארזים">
-                <div class="img" style="background-image: url('images/cases/case_1.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/cases/case_1.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:3, name:"מארז שמרים קרואוסונים ופינוקים", price:150, qty:1, category:"מארזים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="3">0</p>
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="קינוחים">
-                <div class="img" style="background-image: url('images/desserts/dessert_1.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/desserts/dessert_1.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:4, name:"אצבע שוקולד מריר", price:80, qty:1, category:"קינוחים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="4">0</p>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="עוגות חתונה">
-                <div class="img" style="background-image: url('images/wedding/wedding_1.jpg');"></div>
+                <div class="img" style="background-image: url('../images/wedding/wedding_1.jpg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:5, name:"Triple Love", price:780, qty:1, category:"עוגות חתונה"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="5">0</p>
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="בלונים">
-                <div class="img" style="background-image: url('images/baloons/baloon_2.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/baloons/baloon_2.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:6, name:"בלון לב צבעוני", price:15, qty:1, category:"בלונים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="6">0</p>
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="מארזים">
-                <div class="img" style="background-image: url('images/cases/case_2.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/cases/case_2.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:7, name:"מארז עוגה מקרונים ותותים", price:180, qty:1, category:"מארזים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="7">0</p>
@@ -146,7 +146,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="עוגת יום הולדת">
-                <div class="img" style="background-image: url('images/birthday/birthday_2.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/birthday/birthday_2.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:8, name:"עוגת יום הולדת סגולה פרחונית", price:160, qty:1, category:"עוגת יום הולדת"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="8">0</p>
@@ -158,7 +158,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="קינוחים">
-                <div class="img" style="background-image: url('images/desserts/dessert_2.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/desserts/dessert_2.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:9, name:"טארט לימון", price:100, qty:1, category:"קינוחים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="1">0</p>
@@ -170,7 +170,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="עוגות חתונה">
-                <div class="img" style="background-image: url('images/wedding/wedding_2.jpg');"></div>
+                <div class="img" style="background-image: url('../images/wedding/wedding_2.jpg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:10, name:"עוגת חתונה עלים", price:600, qty:1, category:"עוגות חתונה"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="10">0</p>
@@ -182,7 +182,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="בלונים">
-                <div class="img" style="background-image: url('images/baloons/baloon_3.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/baloons/baloon_3.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:11, name:"בלון נסיכה נולדה", price:15, qty:1, category:"בלונים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="11">0</p>
@@ -194,7 +194,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="מארזים">
-                <div class="img" style="background-image: url('images/cases/case_3.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/cases/case_3.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:12, name:"מקרונים לבבות", price:140, qty:1, category:"מארזים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="12">0</p>
@@ -206,7 +206,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="עוגת יום הולדת">
-                <div class="img" style="background-image: url('images/birthday/birthday_3.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/birthday/birthday_3.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:13, name:"עוגת יום הולדת ורודה לבבות", price:160, qty:1, category:"עוגת יום הולדת"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="1">0</p>
@@ -218,7 +218,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="קינוחים">
-                <div class="img" style="background-image: url('images/desserts/dessert_3.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/desserts/dessert_3.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:14, name:"מוס שוקולד בלגי עם סוכריות", price:100, qty:1, category:"קינוחים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="14">0</p>
@@ -230,7 +230,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="עוגות חתונה">
-                <div class="img" style="background-image: url('images/wedding/wedding_3.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/wedding/wedding_3.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:15, name:"עוגת חתונה לבנה פנינים", price:760, qty:1, category:"עוגות חתונה"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="15">0</p>
@@ -242,7 +242,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="בלונים">
-                <div class="img" style="background-image: url('images/baloons/baloon_4.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/baloons/baloon_4.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:16, name:"בלון גיוס קל", price:20, qty:1, category:"בלונים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="16">0</p>
@@ -254,7 +254,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="מארזים">
-                <div class="img" style="background-image: url('images/cases/case_4.jpg');"></div>
+                <div class="img" style="background-image: url('../images/cases/case_4.jpg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:17, name:"מארז כיפור", price:120, qty:1, category:"מארזים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="17">0</p>
@@ -266,7 +266,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="עוגת יום הולדת">
-                <div class="img" style="background-image: url('images/birthday/birthday_6.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/birthday/birthday_6.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:18, name:"עוגת יום הולדת ורודה שושנים", price:250, qty:1, category:"עוגת יום הולדת"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="18">0</p>
@@ -278,7 +278,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="קינוחים">
-                <div class="img" style="background-image: url('images/desserts/dessert_4.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/desserts/dessert_4.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:19, name:"פינק פיסטשיו", price:120, qty:1, category:"קינוחים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="19">0</p>
@@ -290,7 +290,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="עוגת יום הולדת">
-                <div class="img" style="background-image: url('images/birthday/birthday_7.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/birthday/birthday_7.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:20, name:"עוגת יום הולדת קרואוסון תכלת", price:700, qty:1, category:"עוגת יום הולדת"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="20">0</p>
@@ -302,7 +302,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="מארזים">
-                <div class="img" style="background-image: url('images/cases/case_5.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/cases/case_5.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:21, name:"קרואוסונים שוקולד וחלבה", price:80, qty:1, category:"מארזים"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="21">0</p>
@@ -314,7 +314,7 @@
                 </div>
             </div>
             <div class="single_product" data-category="עוגת יום הולדת">
-                <div class="img" style="background-image: url('images/birthday/birthday_8.jpeg');"></div>
+                <div class="img" style="background-image: url('../images/birthday/birthday_8.jpeg');"></div>
                 <div class="actions">
                     <button class="plus" onclick='plus({id:22, name:"עוגת יום הולדת שושנים זהב", price:700, qty:1, category:"עוגת יום הולדת"})'><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <p class="sum_products" id="22">0</p>
@@ -330,7 +330,7 @@
 
     <footer>
         <div class="footer_content">
-            <div class="img" style="background-image: url(images/white_logo.png);"></div>
+            <div class="img" style="background-image: url(../images/white_logo.png);"></div>
             <div class="or">
                 <b>אור שפיץ</b>
                 <li><a href="shop.html">חנות</a></li>

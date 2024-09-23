@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Assistant";
-    src: url("fonts/Assistant-Regular.ttf");
+    src: url("../../fonts/Assistant-Regular.ttf");
 }
 
 body{
@@ -127,7 +127,7 @@ footer li a:hover{
 }
 
 .login-section{
-    background-image: url(images/login-background.jpg);
+    background-image: url(../images/login-background.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -186,7 +186,7 @@ footer li a:hover{
 .products-section{
     padding: 150px 0;
     width: 100%;
-    background-image: url(images/products_background.png);
+    background-image: url(../images/products_background.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -317,7 +317,7 @@ footer li a:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(images/shopping-bag.png);
+    background-image: url(../images/shopping-bag.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50px;
@@ -554,7 +554,7 @@ footer li a:hover{
 }
 
 .who-am-i-section .who-am-i-content .img{
-    background-image: url(images/miAny.png);
+    background-image: url(../images/miAny.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
