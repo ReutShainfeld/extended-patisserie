@@ -1,7 +1,7 @@
 function checkRegister() {
     if(localStorage.getItem("connect") && localStorage.getItem("connect") != 0){
         document.getElementById("username").innerHTML = localStorage.getItem("fullName");
-    }else{
+    } else {
         console.log(document.getElementById('shop_connect_msg'));
         localStorage["connect"] = 0;
         document.getElementById("logout").style.display = "none";
@@ -9,7 +9,6 @@ function checkRegister() {
             document.getElementById('shop_connect_msg').style.display = "block";
             document.getElementById("payment").disabled = true;
             document.getElementById("payment").style.color = "gray";
-
         }
     }
 }
@@ -17,6 +16,8 @@ function checkRegister() {
 function user() {
     localStorage.removeItem("connect");
     localStorage.removeItem("fullName");
-    let result = "front-page.html";
-    setTimeout(window.location.href = result, 5000);
+    let result = "/html/front-page.html";
+    setTimeout(function() {
+        window.location.href = result;
+    }, 5000);
 }

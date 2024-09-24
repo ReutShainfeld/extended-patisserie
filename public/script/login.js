@@ -1,10 +1,9 @@
 function register() {
     var valid = true;
-    // name validation
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
     var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;  // Add password field
+    var password = document.getElementById("password").value;
     var phone = document.getElementById('phone').value;
 
     if (firstName.length < 1 || /[0-9]/.test(firstName)) {
@@ -25,7 +24,7 @@ function register() {
     }
 
     if (valid) {
-        fetch('http://localhost:3000/auth/register', {  // Update endpoint to /auth/register
+        fetch('http://localhost:3000/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -47,34 +46,27 @@ function register() {
     }
 }
 
+function login() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
 
-    function login() {
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-
-        fetch('http://localhost:3000/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.message === 'Login successful') {
-                alert('Login successful');
-                localStorage.setItem("connect", true);
-                localStorage.setItem("fullName", data.fullName);
-                window.location.href = "shop.html"; // Redirect after login
-            } else {
-                alert(data.message);
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    }
-
-    
-
-
- 
-    
+    fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Login successful') {
+            alert('Login successful');
+            localStorage.setItem("connect", true);
+            localStorage.setItem("fullName", data.fullName);
+            window.location.href = "/html/shop.html";
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
