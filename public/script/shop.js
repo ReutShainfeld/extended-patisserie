@@ -134,7 +134,8 @@ function updateCart() {
     }
     document.getElementById("summary").innerHTML = sum + ' ש"ח ';
     cart_rows.innerHTML = htmlStrig;
-    
+    saveCart();
+
     function saveCart() {
         const cartData = { items: cart };
     

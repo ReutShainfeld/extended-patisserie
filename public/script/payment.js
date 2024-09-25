@@ -21,4 +21,23 @@ function pay() {
         document.getElementById("card-body").style.display = "none";
         document.getElementById("text-center").style.display = "none";
     }
+    if (valid) {
+        const paymentData = {
+            cardNo: cardno,
+            exp: exp,
+            cvv: cvv,
+            amount: sum // Assuming sum is the total amount of the cart
+        };
+    
+        fetch('/api/payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(paymentData)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    }
+    
 }
+
