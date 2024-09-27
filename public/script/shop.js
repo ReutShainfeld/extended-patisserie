@@ -93,7 +93,7 @@ function deleteRow(id, qty) {
     console.log(cart);
 }
 
-function updateCart() {
+function    updateCart() {
     let cart_rows = document.getElementById("table_cart");
     let htmlStrig = '';
     let sum = 0;
@@ -135,18 +135,64 @@ function updateCart() {
     document.getElementById("summary").innerHTML = sum + ' ש"ח ';
     cart_rows.innerHTML = htmlStrig;
     saveCart();
-
-    function saveCart() {
-        const cartData = { items: cart };
-    
-        fetch('/api/cart', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(cartData)
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
-    }
-    
 }
+function saveCart() {
+    const cartData = {
+        items: cart, // The current cart items
+        userId: localStorage.getItem("userId") // Get the userId from localStorage
+    };
+
+    // Send the cart data to your backend (to MongoDB)
+    fetch('/api/cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(cartData)  // Include userId and items in the request body
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+
+
+function loadCart() {
+    const userId = localStorage.getItem("userId");
+
+    fetch(`/api/cart/${userId}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.items) {
+            cart = data.items;
+            
+            // Update the cart icon to show the total number of items
+            let totalItems = 0;
+            cart.forEach(item => {
+                totalItems += item.qty;  // Sum the quantities of all products
+                let qtyElement = document.getElementById(item.id);
+                if (qtyElement) {
+                    qtyElement.innerHTML = item.qty;  // Update the product quantity
+                }
+            });
+
+            // Update the total items in the cart icon
+            document.getElementById("sum_products").innerHTML = totalItems;
+
+            // Update the rest of the cart display
+            updateCart();
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+
+
+
+
+
+
+    
+    
+

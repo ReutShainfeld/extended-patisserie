@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <script src="../script/header.js"></script>
         <script src="../script/payment.js"></script>
+        <script src="../script/shop.js"></script>
         <!-- font-awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- bootstrap -->
@@ -14,7 +15,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
-<body id="body_card">
+<body id="body_card"  onload="loadCart();" >
     <header>
         <img src="../images/colorfull_logo.png" alt="">
         <menu>
@@ -22,11 +23,16 @@
             <li><a href="/html/shop.html">חנות</a></li>
             <li><a href="/html/About.html">מי אני?</a></li>
             <li><a href="/html/Kosher-certificate.html">תעודת כשרות</a></li>
+            <!-- <menu>
+                <li><a href="front-page.html">התחברות / הרשמה</a></li>
+                <li><a href="shop.html">חנות</a></li>
+                <li><a href="About.html">מי אני?</a></li>
+                <li><a href="Kosher-certificate.html">תעודת כשרות</a></li> -->
         </menu>
         <div id="user">
             <i class="fa fa-user" aria-hidden="true"></i>
             <p id="username"></p>
-            <button id="logout"  onclick="user()">יציאה</button>
+            <button id="logout" onclick="user()">יציאה</button>
         </div>
     </header>
 

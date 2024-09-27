@@ -4,6 +4,7 @@ const User = require('../models/User');
 const router = express.Router();
 
 // Register endpoint
+
 router.post('/register', async (req, res) => {
     const { firstName, lastName, email, password, phone } = req.body;
     try {
@@ -16,7 +17,12 @@ router.post('/register', async (req, res) => {
         const newUser = new User({ firstName, lastName, email, password: hashedPassword, phone });
 
         await newUser.save();
-        res.status(201).json({ message: 'User registered successfully' });
+
+        // Send back the userId as part of the response
+        res.status(201).json({
+            message: 'User registered successfully',
+            userId: newUser._id // Return the userId
+        });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error });
     }
@@ -24,6 +30,7 @@ router.post('/register', async (req, res) => {
 
 
 // Login endpoint
+
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -37,11 +44,15 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
 
-        res.status(200).json({ message: 'Login successful', fullName: `${user.firstName} ${user.lastName}` });
+        // Make sure to send userId in the response
+        res.status(200).json({
+            message: 'Login successful',
+            fullName: `${user.firstName} ${user.lastName}`,
+            userId: user._id // This is what needs to be returned
+        });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error });
     }
 });
-
 
 module.exports = router;

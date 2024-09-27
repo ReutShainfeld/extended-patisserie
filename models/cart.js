@@ -1,6 +1,8 @@
+
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Add user reference
     items: [
         {
             id: String,
@@ -13,3 +15,4 @@ const cartSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Cart', cartSchema);
+

@@ -37,6 +37,8 @@ function register() {
                 alert('Registration successful!');
                 localStorage.setItem("connect", true);
                 localStorage.setItem("fullName", firstName + ' ' + lastName);
+                localStorage.setItem("userId", data.userId);
+                console.log(localStorage.getItem("userId"));
                 document.getElementById('welcome_msg').style.display = "block";
             } else {
                 alert(data.message);
@@ -45,6 +47,7 @@ function register() {
         .catch(error => console.error('Error:', error));
     }
 }
+
 
 function login() {
     var email = document.getElementById("email").value;
@@ -59,11 +62,17 @@ function login() {
     })
     .then(response => response.json())
     .then(data => {
+        console.log("Response data: ", data); // Log the entire response to check if userId is returned
+        
         if (data.message === 'Login successful') {
             alert('Login successful');
             localStorage.setItem("connect", true);
             localStorage.setItem("fullName", data.fullName);
-            window.location.href = "/html/shop.html";
+            localStorage.setItem("userId", data.userId); // Store userId in localStorage
+            
+            console.log("userId set in localStorage: ", localStorage.getItem("userId")); // Log the userId after setting it
+            
+            window.location.href = "/html/shop.html"; // Redirect to shop page
         } else {
             alert(data.message);
         }
