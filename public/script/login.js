@@ -7,19 +7,19 @@ function register() {
     var phone = document.getElementById('phone').value;
 
     if (firstName.length < 1 || /[0-9]/.test(firstName)) {
-        alert("שם פרטי לא תקין");
+        showCustomAlert("שם פרטי לא תקין");
         valid = false;
     }
     if (lastName.length < 1 || /[0-9]/.test(lastName)) {
-        alert("שם משפחה לא תקין");
+        showCustomAlert("שם משפחה לא תקין");
         valid = false;
     }
     if (email.length < 1 || !/^\S+@\S+\.\S+$/.test(email)) {
-        alert("כתובת אמייל לא תקינה");
+        showCustomAlert("כתובת אמייל לא תקינה");
         valid = false;
     }
     if (!/^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/.test(phone)) {
-        alert("מספר טלפון לא תקין");
+        showCustomAlert("מספר טלפון לא תקין");
         valid = false;
     }
 
@@ -34,17 +34,20 @@ function register() {
         .then(response => response.json())
         .then(data => {
             if (data.message === 'User registered successfully') {
-                alert('Registration successful!');
+                showCustomAlert("הרשמה הושלמה בהצלחה!");
                 localStorage.setItem("connect", true);
                 localStorage.setItem("fullName", firstName + ' ' + lastName);
                 localStorage.setItem("userId", data.userId);
                 console.log(localStorage.getItem("userId"));
                 document.getElementById('welcome_msg').style.display = "block";
             } else {
-                alert(data.message);
+                showCustomAlert(data.message);
             }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            showCustomAlert('An error occurred. Please try again.');
+            console.error('Error:', error);
+        });
     }
 }
 
@@ -65,7 +68,7 @@ function login() {
         console.log("Response data: ", data); // Log the entire response to check if userId is returned
         
         if (data.message === 'Login successful') {
-            alert('Login successful');
+            showCustomAlert('התחברות הצליחה!');
             localStorage.setItem("connect", true);
             localStorage.setItem("fullName", data.fullName);
             localStorage.setItem("userId", data.userId); // Store userId in localStorage
@@ -74,8 +77,20 @@ function login() {
             
             window.location.href = "/html/shop.html"; // Redirect to shop page
         } else {
-            alert(data.message);
+            showCustomAlert(data.message);
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        showCustomAlert('An error occurred. Please try again.');
+        console.error('Error:', error);
+    });
+}
+
+function showCustomAlert(message) {
+    document.getElementById('custom-alert-message').textContent = message;
+    document.getElementById('custom-alert').style.display = 'flex';
+}
+
+function closeCustomAlert() {
+    document.getElementById('custom-alert').style.display = 'none';
 }

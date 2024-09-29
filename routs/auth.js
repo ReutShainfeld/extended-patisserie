@@ -10,7 +10,7 @@ router.post('/register', async (req, res) => {
     try {
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ message: ' האימייל כבר קיים במערכת' });
+            return res.status(400).json({ message: 'Email already exists' });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -36,12 +36,12 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: 'אימייל או סיסמה שגויים' });
+            return res.status(400).json({ message: 'Invalid email or password' });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ message: 'אימייל או סיסמה שגויים' });
+            return res.status(400).json({ message: 'Invalid email or password' });
         }
 
         // Make sure to send userId in the response
