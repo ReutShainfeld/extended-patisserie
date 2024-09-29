@@ -20,24 +20,33 @@ function pay() {
         document.getElementById("thank-msg").style.display = "block";
         document.getElementById("card-body").style.display = "none";
         document.getElementById("text-center").style.display = "none";
+
     }
+    const sum = localStorage.getItem('cartSum'); // Retrieve sum from local storage
+    const userId = localStorage.getItem('userId'); // Retrieve userid from local storage
     if (valid) {
         const paymentData = {
             cardNo: cardno,
             exp: exp,
             cvv: cvv,
-            amount: sum // Assuming sum is the total amount of the cart
+            amount: sum,
+            userId: userId,
+
         };
-    
+
         fetch('/api/payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(paymentData)
+            body: JSON.stringify(paymentData),
+
         })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
     }
-    
 }
+
+
+
+
 

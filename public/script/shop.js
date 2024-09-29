@@ -44,7 +44,7 @@ function addToCart(item) {
     let exist = false;
     if (cart.length == 0) {
         cart.push(item);
-        document.getElementById(item.id).innerHTML = item.qty; 
+        document.getElementById(item.id).innerHTML = item.qty;
     } else {
         cart.forEach(element => {
             if (element.name == item.name) {
@@ -55,7 +55,7 @@ function addToCart(item) {
         });
         if (!exist) {
             cart.push(item);
-            document.getElementById(item.id).innerHTML = item.qty;            
+            document.getElementById(item.id).innerHTML = item.qty;
         }
     }
     console.log(cart);
@@ -71,7 +71,7 @@ function removeCart(item) {
             } else if (cart[i].qty == 1) {
                 cart.splice(i, 1);
                 document.getElementById(item.id).innerHTML = 0;
-            }           
+            }
         }
     }
     updateCart();
@@ -79,28 +79,28 @@ function removeCart(item) {
 }
 
 function deleteRow(id, qty) {
-    let row = document.getElementById("tr"+id);
+    let row = document.getElementById("tr" + id);
     let sum_product_header = Number(document.getElementById("sum_products").innerHTML);
     document.getElementById("sum_products").innerHTML = sum_product_header - qty;
     document.getElementById(id).innerHTML = "0";
     row.remove();
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].id == id) {
-            cart.splice(i, 1);         
+            cart.splice(i, 1);
         }
     }
     updateCart();
     console.log(cart);
 }
 
-function    updateCart() {
+function updateCart() {
     let cart_rows = document.getElementById("table_cart");
     let htmlStrig = '';
     let sum = 0;
     cart_rows.innerHTML = htmlStrig;
     if (cart.length > 0) {
         document.getElementById("empty_msg").style.display = "none";
-        document.getElementById("payment").style.display = "block";    
+        document.getElementById("payment").style.display = "block";
         if (localStorage.getItem("connect") && localStorage.getItem("connect") != 0) {
             document.getElementById("payment").disabled = false;
         } else {
@@ -110,21 +110,22 @@ function    updateCart() {
         htmlStrig += '<tr>';
         htmlStrig += '<th>מספר מוצר</th>';
         htmlStrig += '<th>קטגוריה</th>';
-        htmlStrig += '<th>שם</th>';      
+        htmlStrig += '<th>שם</th>';
         htmlStrig += '<th>מחיר</th>';
         htmlStrig += '<th>כמות</th>';
         htmlStrig += '<th>    </th>';
         htmlStrig += '</tr>';
         for (let i = 0; i < cart.length; i++) {
             sum += cart[i].price * cart[i].qty;
-            htmlStrig += '<tr id="tr'+cart[i].id+'">';
-            htmlStrig += '<td>'+cart[i].id+'</td>';
-            htmlStrig += '<td>'+cart[i].category+'</td>';
-            htmlStrig += '<td>'+cart[i].name+'</td>';
-            htmlStrig += '<td>'+cart[i].price+'</td>';
-            htmlStrig += '<td>'+cart[i].qty+'</td>';
-            htmlStrig += '<td><button class="deleteFromCart" onclick="deleteRow('+cart[i].id+', '+cart[i].qty+')"><i class="fa fa-trash-o"></i></button></td>';
+            htmlStrig += '<tr id="tr' + cart[i].id + '">';
+            htmlStrig += '<td>' + cart[i].id + '</td>';
+            htmlStrig += '<td>' + cart[i].category + '</td>';
+            htmlStrig += '<td>' + cart[i].name + '</td>';
+            htmlStrig += '<td>' + cart[i].price + '</td>';
+            htmlStrig += '<td>' + cart[i].qty + '</td>';
+            htmlStrig += '<td><button class="deleteFromCart" onclick="deleteRow(' + cart[i].id + ', ' + cart[i].qty + ')"><i class="fa fa-trash-o"></i></button></td>';
             htmlStrig += '</tr>';
+
         }
     } else {
         document.getElementById("summary").innerHTML = '';
@@ -133,14 +134,20 @@ function    updateCart() {
         document.getElementById("connect_cart_msg").style.display = "none";
     }
     document.getElementById("summary").innerHTML = sum + ' ש"ח ';
+
     cart_rows.innerHTML = htmlStrig;
+
+    localStorage.setItem('cartSum', sum); // Store sum in local storage
+
     saveCart();
 }
 function saveCart() {
     const cartData = {
         items: cart, // The current cart items
         userId: localStorage.getItem("userId") // Get the userId from localStorage
+
     };
+    // localStorage.setItem('cart', cart); // Store sum in local storag
 
     // Send the cart data to your backend (to MongoDB)
     fetch('/api/cart', {
@@ -148,9 +155,9 @@ function saveCart() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cartData)  // Include userId and items in the request body
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
 }
 
 
@@ -161,29 +168,29 @@ function loadCart() {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.items) {
-            cart = data.items;
-            
-            // Update the cart icon to show the total number of items
-            let totalItems = 0;
-            cart.forEach(item => {
-                totalItems += item.qty;  // Sum the quantities of all products
-                let qtyElement = document.getElementById(item.id);
-                if (qtyElement) {
-                    qtyElement.innerHTML = item.qty;  // Update the product quantity
-                }
-            });
+        .then(response => response.json())
+        .then(data => {
+            if (data.items) {
+                cart = data.items;
 
-            // Update the total items in the cart icon
-            document.getElementById("sum_products").innerHTML = totalItems;
+                // Update the cart icon to show the total number of items
+                let totalItems = 0;
+                cart.forEach(item => {
+                    totalItems += item.qty;  // Sum the quantities of all products
+                    let qtyElement = document.getElementById(item.id);
+                    if (qtyElement) {
+                        qtyElement.innerHTML = item.qty;  // Update the product quantity
+                    }
+                });
 
-            // Update the rest of the cart display
-            updateCart();
-        }
-    })
-    .catch(error => console.error('Error:', error));
+                // Update the total items in the cart icon
+                document.getElementById("sum_products").innerHTML = totalItems;
+
+                // Update the rest of the cart display
+                updateCart();
+            }
+        })
+        .catch(error => console.error('Error:', error));
 }
 
 
@@ -193,6 +200,6 @@ function loadCart() {
 
 
 
-    
-    
+
+
 

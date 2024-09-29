@@ -32,7 +32,7 @@ router.get('/:userId', async (req, res) => {
         if (userCart) {
             res.status(200).json(userCart);
         } else {
-            res.status(404).json({ message: 'Cart not found' });
+            res.status(200).json({ message: 'new cart' });
         }
     } catch (err) {
         res.status(500).json({ error: err.message });
