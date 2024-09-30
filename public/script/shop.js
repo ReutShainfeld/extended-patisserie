@@ -137,19 +137,18 @@ function updateCart() {
 
     cart_rows.innerHTML = htmlStrig;
 
-    localStorage.setItem('cartSum', sum); // Store sum in local storage
+    localStorage.setItem('cartSum', sum); 
 
     saveCart();
 }
 function saveCart() {
     const cartData = {
         items: cart, // The current cart items
-        userId: localStorage.getItem("userId") // Get the userId from localStorage
+        userId: localStorage.getItem("userId") 
 
     };
-    // localStorage.setItem('cart', cart); // Store sum in local storag
 
-    // Send the cart data to your backend (to MongoDB)
+    // Send the cart data to MongoDB
     fetch('/api/cart', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -176,17 +175,15 @@ function loadCart() {
                 // Update the cart icon to show the total number of items
                 let totalItems = 0;
                 cart.forEach(item => {
-                    totalItems += item.qty;  // Sum the quantities of all products
+                    totalItems += item.qty;  
                     let qtyElement = document.getElementById(item.id);
                     if (qtyElement) {
-                        qtyElement.innerHTML = item.qty;  // Update the product quantity
+                        qtyElement.innerHTML = item.qty;  
                     }
                 });
 
-                // Update the total items in the cart icon
                 document.getElementById("sum_products").innerHTML = totalItems;
 
-                // Update the rest of the cart display
                 updateCart();
             }
         })

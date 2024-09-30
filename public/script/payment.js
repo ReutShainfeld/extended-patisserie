@@ -24,8 +24,8 @@ function pay() {
         document.getElementById("card-body").style.display = "none";
         document.getElementById("text-center").style.display = "none";
 
-        const sum = localStorage.getItem('cartSum'); // Retrieve sum from local storage
-        const userId = localStorage.getItem('userId'); // Retrieve userId from local storage
+        const sum = localStorage.getItem('cartSum'); 
+        const userId = localStorage.getItem('userId');
         
         const paymentData = {
             cardNo: cardno,

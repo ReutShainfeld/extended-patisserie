@@ -44,11 +44,10 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'אימייל או סיסמה שגויים' });
         }
 
-        // Make sure to send userId in the response
         res.status(200).json({
             message: 'Login successful',
             fullName: `${user.firstName} ${user.lastName}`,
-            userId: user._id // This is what needs to be returned
+            userId: user._id 
         });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error });

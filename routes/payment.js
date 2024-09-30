@@ -3,31 +3,18 @@ const Payment = require('../models/payment');
 const Cart = require('../models/cart');
 const router = express.Router();
 
-// router.post('/', (req, res) => {
-//     const payment = new Payment(req.body);
-//     payment.save()
-
-
-
-//         .then(() => res.status(200).json({ message: 'Payment saved successfully' }))
-//         .catch(err => res.status(500).json({ error: err.message }));
-// });
-
 
 router.post('/', async (req, res) => {
     try {
         const { userId, cardNo, exp, cvv, amount } = req.body; // Destructure payment data directly
         console.log('User ID:', userId);
-        console.log('Payment Data:', { cardNo, exp, cvv, amount }); // Now logging the payment data
+        console.log('Payment Data:', { cardNo, exp, cvv, amount }); 
 
-        // Create a new payment entry
-        const payment = new Payment({ userId, cardNo, exp, cvv, amount }); // Adjust according to your Payment schema
+        const payment = new Payment({ userId, cardNo, exp, cvv, amount }); 
 
-        // Save the payment information to the database
         await payment.save();
         console.log('Payment saved successfully');
 
-        // Clear the cart for the user after successful payment
         const result = await Cart.deleteOne({ userId });
         console.log('Delete result:', result);
 
